@@ -1,7 +1,8 @@
 import './Header.css'
 
 function Header(){
-    return <div class='App-Header'>
+    return (
+    <div class='App-Header'>
                 <h1>My React Application</h1>
                 <ol>
                     <li>Home</li>
@@ -11,6 +12,7 @@ function Header(){
                     <li>Logout</li>
                 </ol>
             </div>
+    )
 }
 
 export default Header

@@ -13,9 +13,10 @@ export const AppContext =createContext()
 
 function App() {
   const [user,setUser]=useState({})
+  const [cart,setCart]=useState([])
   return (
   <div>
-    <AppContext.Provider value={{user,setUser}}>
+    <AppContext.Provider value={{user,setUser,cart,setCart}}>
   <BrowserRouter>
     <Header/>
     <Routes>

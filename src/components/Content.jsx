@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect,useContext } from 'react'
+import {AppContext} from "../App"
 import axios from 'axios'
 import "./Content.css"
 
@@ -7,6 +8,7 @@ const API_URL=import.meta.env.VITE_API_URL
 function Content() {
     const [count, setCount] = useState(0)
     const [products, setProducts] = useState([])
+    const {user,setUser,cart,setCart} = useContext(AppContext)
 
     const inc = () => {
         setCount(count + 1)
@@ -26,6 +28,15 @@ function Content() {
         fetchProducts()
     }, [])
 
+    const addToCart=(product)=>{
+        const found=cart.find((item)=>item._id===product._id);
+        if (!found){
+            product.quantity=1;
+            setCart([...cart,product])
+        }
+    }
+
+
     return (
         <>
 
@@ -43,8 +54,9 @@ function Content() {
                     <h3>{product.name}</h3>
                     <p>{product.desc}</p>
                     <h4>{product.price}</h4>
-                    <p><button>Add to cart</button></p>
+                    <p><button onClick={() => addToCart(product)}>Add to cart</button></p>
                     <h4>⭐{product.rating}</h4>
+                    
                 </div>
             ))}
 

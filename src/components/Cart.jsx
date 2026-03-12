@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { AppContext } from "../App";
-import "./Cart.css"
+
 
 const API_URL=import.meta.env.VITE_API_URL
 
@@ -39,6 +39,19 @@ function Cart() {
   }, [cart]);
 
   return (
+    <>
+    <style>
+        {`
+        .box{
+        display:flex;
+        border:1px solid gray;
+        padding:5px;
+        margin:5px;
+        }
+        
+        `}
+      </style>
+      
     <div>
       <h1>My Cart</h1>
       <ol>
@@ -60,9 +73,10 @@ function Cart() {
         <strong>Order Value:{orderValue}</strong>
       </p>
       <p>
-        <button>Place Order</button>
+        <button >Place Order</button>
       </p>
     </div>
+    </>
   );
 }
 export default Cart;

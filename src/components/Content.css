@@ -1,4 +1,5 @@
 .row{
+    background:linear-gradient(rgb(38, 220, 50),white,lightblue);
     display:flex;
     flex-wrap:wrap;
     padding:5px;

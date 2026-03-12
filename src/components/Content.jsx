@@ -21,6 +21,7 @@ function Content() {
     const fetchProducts = async () => {
         try{
         const res = await axios.get(`${API_URL}/store`)
+        console.log(res.data)
         setProducts(res.data.products || res.data)
     }catch(err){
         console.log(err)
@@ -53,7 +54,7 @@ function Content() {
             {Array.isArray(products) &&
   products.map((product) => (
     <div className='box' key={product._id}>
-        <img src={`${API_URL}/${product.imageUrl}`} width="300px" alt="" />
+        <img src={`${API_URL}/${product.imageUrl}`} width="300px" />
         <h3>{product.name}</h3>
         <p>{product.desc}</p>
         <h4>{product.price}</h4>

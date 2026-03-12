@@ -19,9 +19,12 @@ function Content() {
     }
 
     const fetchProducts = async () => {
-        const url = `${API_URL}/store`
-        const res = await axios.get(url)
-        setProducts(res.data.products)
+        try{
+        const res = await axios.get(`${API_URL}/store`)
+        setProducts(res.data.products || res.data)
+    }catch(err){
+        console.log(err)
+    }
     }
 
     useEffect(() => {

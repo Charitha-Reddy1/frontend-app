@@ -44,6 +44,7 @@ function Content() {
                     <p>{product.desc}</p>
                     <h4>{product.price}</h4>
                     <p><button>Add to cart</button></p>
+                    <h4>⭐{product.rating}</h4>
                 </div>
             ))}
 

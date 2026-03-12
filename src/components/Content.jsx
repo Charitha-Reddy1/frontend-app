@@ -21,7 +21,7 @@ function Content() {
     const fetchProducts = async () => {
         const url = `${API_URL}/store`
         const res = await axios.get(url)
-        setProducts(res.data)
+        setProducts(res.data.products)
     }
 
     useEffect(() => {
@@ -47,18 +47,19 @@ function Content() {
             </h1>
             */}
         <div className='row'>
-            {products.map((product) => (
-                <div className='box'>
-                    <img src={`${API_URL}/${product.imageUrl}`} 
-                    width="300px" alt="" />
-                    <h3>{product.name}</h3>
-                    <p>{product.desc}</p>
-                    <h4>{product.price}</h4>
-                    <p><button onClick={() => addToCart(product)}>Add to cart</button></p>
-                    <h4>⭐{product.rating}</h4>
-                    
-                </div>
-            ))}
+            {Array.isArray(products) &&
+  products.map((product) => (
+    <div className='box' key={product._id}>
+        <img src={`${API_URL}/${product.imageUrl}`} width="300px" alt="" />
+        <h3>{product.name}</h3>
+        <p>{product.desc}</p>
+        <h4>{product.price}</h4>
+        <p>
+          <button onClick={() => addToCart(product)}>Add to cart</button>
+        </p>
+        <h4>⭐{product.rating}</h4>
+    </div>
+))}
 
             </div>
         </>

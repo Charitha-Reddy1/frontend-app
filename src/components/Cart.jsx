@@ -49,10 +49,11 @@ function Cart() {
         margin:5px;
         }
         
+        
         `}
       </style>
       
-    <div>
+    <div style={{ background: "linear-gradient(rgb(38, 220, 50),white,lightblue)" }}>
       <h1>My Cart</h1>
       <ol>
         {cart.map((item) => (

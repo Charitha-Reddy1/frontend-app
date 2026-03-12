@@ -1,4 +1,4 @@
-//import {useState} from 'react'
+import {useState,createContext} from 'react'
 import Header from './components/Header'
 import Content from './components/Content'
 import Footer from './components/Footer'
@@ -8,14 +8,14 @@ import Cart from './components/Cart'
 import Orders from './components/Orders'
 import Logout from './components/Logout'
 import {BrowserRouter,Route,Routes} from  "react-router-dom"
-//export const Appcontext =createContext()
+export const AppContext =createContext()
 
 
 function App() {
-  // const [user,setUser]=useState({})
+  const [user,setUser]=useState({})
   return (
   <div>
-  {/* <AppContext.Provider value={{user,setUser}}> */}
+    <AppContext.Provider value={{user,setUser}}>
   <BrowserRouter>
     <Header/>
     <Routes>
@@ -28,7 +28,7 @@ function App() {
     </Routes>
     <Footer/>
     </BrowserRouter>
-    {/* </AppContext.Provider> */}
+    </AppContext.Provider>
     </div>
   )
 }

@@ -1,6 +1,8 @@
 import {Link} from 'react-router-dom'
+import {useState} from 'react'
 
 function Login(){
+    const [user,setUser]=useState({})
     return (
     <div>
         <h1>Login Page</h1>

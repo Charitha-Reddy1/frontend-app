@@ -19,7 +19,8 @@ function Register(){
     <p><input type="text" onChange={(e)=>setUser({...user,email:e.target.value})} placeholder="Email"></input></p>
     <p><input type="password" onChange={(e)=>setUser({...user,password:e.target.value})} placeholder="Password"></input></p>
     <p><button onClick={handleSubmit}>Submit</button></p>
-    <p><Link to='/login'>Already a User?Click to Login Here</Link></p>
+    <p>Already a User?👇🏻</p>
+    <p><Link to='/login'>Click to Login Here</Link></p>
     </div>
 )
 }

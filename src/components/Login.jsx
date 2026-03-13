@@ -36,7 +36,8 @@ function Login(){
         <button onClick={handleLogin}>Login</button>
       </p>
       <p>
-        <Link to="/register">New user register here</Link>
+        New user ?👇🏻</p>
+        <p><Link to="/register"> Register here !!</Link>
       </p>
     </div>
   );

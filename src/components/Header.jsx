@@ -2,11 +2,15 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 import { AppContext } from "../App";
 import { useContext } from "react";
+import logo from "./starlogo.png";
+
+
 function Header() {
   const { user } = useContext(AppContext);
   return (
     <div className="App-Header">
-      <h1>My Store</h1>
+      <h1>The StarBucks Store</h1>
+      <img src={logo} className="logo" />
       <ul>
         <li>
           <Link to="/">Home</Link>
@@ -18,7 +22,7 @@ function Header() {
         {user?.email ? (
           <>
             <li>
-              <Link to="/orders">Order</Link>
+              <Link to="/orders">Orders</Link>
             </li>
             <li>
               <Link to="/logout">Logout</Link>

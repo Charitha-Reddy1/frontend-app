@@ -57,11 +57,11 @@ function Content() {
         <img src={`${API_URL}/${product.imageUrl}`} width="300px" />
         <h3>{product.name}</h3>
         <p>{product.desc}</p>
-        <h4>{product.price}</h4>
+        <h4 style={{ color: "red" }}>₹{product.price}</h4>
         <p>
           <button onClick={() => addToCart(product)}>Add to cart</button>
         </p>
-        <h4>⭐{product.rating}</h4>
+        <h4 style={{color:"blue"}}>⭐{product.rating}</h4>
     </div>
 ))}
 

@@ -1,12 +1,16 @@
 import { useContext, useState, useEffect } from "react";
 import { AppContext } from "../App";
-
+import { useNavigate } from "react-router-dom";
 
 const API_URL=import.meta.env.VITE_API_URL
+import axios from "axios";
 
 function Cart() {
-  const { cart, setCart } = useContext(AppContext);
+  const { cart, setCart,user } = useContext(AppContext);
   const [orderValue, setOrderValue] = useState(0);
+  const Navigate = useNavigate();
+
+
   const increment = (id) => {
     setCart(
       cart.map((item) => {
@@ -37,6 +41,25 @@ function Cart() {
       }, 0),
     );
   }, [cart]);
+
+
+  const placeOrder = async () => {
+    if (user?.email) {
+      const url = `${API_URL}/orders`;
+      const order = {
+        email: user.email,
+        items: cart,
+        orderValue: orderValue,
+        orderDate: Date.now(),
+      };
+      console.log(url, order);
+      const response = await axios.post(url, order);
+      setCart([]);
+      Navigate("/orders");
+    }
+  };
+
+
 
   return (
     <>
@@ -74,7 +97,8 @@ function Cart() {
         <strong>Order Value:{orderValue}</strong>
       </p>
       <p>
-        <button >Place Order</button>
+        {user?.email ?  <button onClick={placeOrder}>Place Order</button> :  <button onClick={()=>Navigate("/login")}>Login to Order</button> }
+       
       </p>
     </div>
     </>

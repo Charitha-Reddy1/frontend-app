@@ -11,19 +11,36 @@ function Login(){
     const handleLogin=async ()=>{
         const url=API_URL+"/auth/signin"
         const response= await axios.post(url,user)
-        setUser(response)
-        Navigate("/")
+        setUser(response.data)
+        if(cart.length>0) Navigate("/cart")
+        else Navigate("/")
     };
-    return (
+      return (
     <div>
-        <h1>Login Page</h1>
-        <p><input type="text" placeholder="Email"></input></p>
-        <p><input type="password" placeholder="Password"></input></p>
-        <p><button onClick={handleLogin}>Login</button></p>
-        <p><Link to='/register'>New User?Click to Register Here</Link></p>
-    
+      <h2>Login Page</h2>
+      <p>
+        <input
+          type="text"
+          onChange={(e) => setUser({ ...user, email: e.target.value })}
+          placeholder="Email"
+        />
+      </p>
+      <p>
+        <input
+          type="password"
+          onChange={(e) => setUser({ ...user, password: e.target.value })}
+          placeholder="Password"
+        />
+      </p>
+      <p>
+        <button onClick={handleLogin}>Login</button>
+      </p>
+      <p>
+        <Link to="/register">New user register here</Link>
+      </p>
     </div>
-    );
+  );
+
 }
 
 export default Login

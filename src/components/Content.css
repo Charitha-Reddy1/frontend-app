@@ -5,8 +5,11 @@
     padding:5px;
 }
 
-.box{
-    border:1px solid gray;
-    padding:5px;
-    margin:5px;
+.box {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: white;
+    width: 320px;   /* fixed width */
 }

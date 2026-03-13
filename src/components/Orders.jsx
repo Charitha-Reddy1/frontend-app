@@ -12,7 +12,7 @@ function Orders() {
       const response = await axios.get(url, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
-      setOrders(response.data);
+      setOrders(response.data.orders || response.data);
     } catch (err) {
       console.log("Something went wrong");
     }

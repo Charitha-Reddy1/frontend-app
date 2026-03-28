@@ -27,7 +27,8 @@ function Login(){
 
   }
       return (
-    <div>
+    <form onSubmit={handleLogin}>
+      <div>
       <h2>Login Page</h2>
       <p>
         <input
@@ -44,13 +45,14 @@ function Login(){
         />
       </p>
       <p>
-        <button onClick={handleLogin}>Login</button>
+        <button type="submit">Login</button>
       </p>
       <p>
         New user ?👇🏻</p>
         <p><Link to="/register"> Register here !!</Link>
       </p>
     </div>
+    </form>
   );
 }
 

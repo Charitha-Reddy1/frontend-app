@@ -2,6 +2,8 @@ import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../App";
 import axios from "axios";
+
+
 function Cart() {
   const { cart, setCart, user } = useContext(AppContext);
   const [orderValue, setOrderValue] = useState(0);

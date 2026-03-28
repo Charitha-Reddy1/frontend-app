@@ -5,16 +5,28 @@ import {AppContext} from '../App'
 import {useNavigate} from 'react-router-dom'
 
 function Login(){
+
     const {user,setUser}=useContext(AppContext)
     const API_URL=import.meta.env.VITE_API_URL
-    const Navigate=useNavigate()
-    const handleLogin=async ()=>{
-        const url=API_URL+"/auth/signin"
-        const response= await axios.post(url,user)
-        setUser(response.data)
-        if(cart.length>0) Navigate("/cart")
-        else Navigate("/")
-    };
+    const navigate=useNavigate()
+    const handleLogin = async () => {
+  try {
+    const url = API_URL + "/auth/signin"
+    const response = await axios.post(url, user)
+
+    setUser(response.data)
+
+    navigate("/")   // ✅ redirect to home
+  } catch (error) {
+    console.log(error)
+    alert("Login failed")
+  }
+
+    //     if(cart.length>0) navigate("/cart")
+    //     else navigate("/")
+    // }
+
+  }
       return (
     <div>
       <h2>Login Page</h2>

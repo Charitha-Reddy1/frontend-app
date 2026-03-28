@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AppContext } from "../App";
 import { useContext } from "react";
 import logo from "./starlogo.png";
+//import {AppContext} from '../App'
 
 
 function Header() {

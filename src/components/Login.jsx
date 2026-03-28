@@ -13,9 +13,7 @@ function Login(){
   try {
     const url = API_URL + "/auth/signin"
     const response = await axios.post(url, user)
-
     setUser(response.data)
-
     navigate("/")   // ✅ redirect to home
   } catch (error) {
     console.log(error)
@@ -28,6 +26,7 @@ function Login(){
 
   }
       return (
+    <form onSubmit={handleLogin}>
     <div>
       <h2>Login Page</h2>
       <p>
@@ -45,13 +44,14 @@ function Login(){
         />
       </p>
       <p>
-        <button onClick={handleLogin}>Login</button>
+        <button>Login</button>
       </p>
       <p>
         New user ?👇🏻</p>
         <p><Link to="/register"> Register here !!</Link>
       </p>
     </div>
+    </form>
   );
 }
 

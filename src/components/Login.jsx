@@ -9,10 +9,16 @@ function Login(){
     const {user,setUser}=useContext(AppContext)
     const API_URL=import.meta.env.VITE_API_URL
     const navigate=useNavigate()
-    const handleLogin = async () => {
+    const handleLogin = async (e) => {
+      e.preventDefault()
   try {
     const url = API_URL + "/auth/signin"
     const response = await axios.post(url, user)
+
+    if (response.data.error) {
+      alert(response.data.error)
+      return
+    }
 
     setUser(response.data)
     navigate("/")   // ✅ redirect to home

@@ -44,7 +44,7 @@ function Login(){
         />
       </p>
       <p>
-        <button onSubmit={handleLogin}>Login</button>
+        <button onClick={handleLogin}>Login</button>
       </p>
       <p>
         New user ?👇🏻</p>
